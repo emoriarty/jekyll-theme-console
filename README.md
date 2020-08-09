@@ -2,7 +2,7 @@
 
 A jekyll theme with inspiration from linux consoles for hackers, developers and script kiddies.
 
-<img src="https://raw.githubusercontent.com/emoriaty/jekyll-theme-console/master/screenrec-dark.gif" width="550" title="Screenshot">
+<img src="https://raw.githubusercontent.com/emoriarty/jekyll-theme-console/master/screenrec-dark.gif" width="550" title="Screenshot">
 
 ## Overview
 
