@@ -1,13 +1,19 @@
-{%- assign page_paths = site.header_pages | default: default_paths -%}
 <header>
+  {%- if site.prompt_name or site.header_pages ~%}
   <div class="menu">
+    {%- if site.prompt_name ~%}
+    <div class="prompt">[{{ site.prompt_name }}:<span class="prompt-path">{{ page.prompt_path | prepend: layout.prompt_path }}</span>]$</div>
+    {%- endif -%}
+    {%- if site.header_pages -%}
     <ul>
-      {%- for path in page_paths -%}
+      {%- for path in site.header_pages -%}
         {%- assign my_page = site.pages | where: "path", path | first -%}
         {%- if my_page.title -%}
         <li><a href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a></li>
         {%- endif -%}
       {%- endfor -%}
     </ul>
+    {%- endif -%}
   </div>
+  {%- endif -%}
 </header>

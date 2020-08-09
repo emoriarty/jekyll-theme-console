@@ -2,23 +2,29 @@
 
 A jekyll theme with inspiration from linux consoles for hackers, developers and script kiddies.
 
-<img src="https://raw.githubusercontent.com/b2a3e8/jekyll-theme-console/master/screenrec-dark.gif" width="550" title="Screenshot">
+<img src="https://raw.githubusercontent.com/emoriaty/jekyll-theme-console/master/screenrec-dark.gif" width="550" title="Screenshot">
+
+## Overview
+
+This is a fork from the original [jekyll-theme-console](https://b2a3e8.github.io/jekyll-theme-console) which I love but I think is needs a friendlier approach. Basically, a website is intended to be read over style, so I decided to apply some changes to improve readability without losing the hacky touch envisioned by b2a3e8.
+
+The most important changes affect to paragraps, headlines and the navigation bar. There's also a new logo looking like a terminal prompt :)
 
 ## Demo
 
 [dark style](https://b2a3e8.github.io/jekyll-theme-console-demo-dark/) ([source code](https://github.com/b2a3e8/jekyll-theme-console-demo-dark)):
 
-[<img src="https://raw.githubusercontent.com/b2a3e8/jekyll-theme-console/master/screenshot-dark.png" width="350" title="Screenshot">](https://b2a3e8.github.io/jekyll-theme-console-demo-dark/)
+[<img src="https://raw.githubusercontent.com/emoriarty/jekyll-theme-console/master/screenshot-dark.png" width="350" title="Screenshot">](https://b2a3e8.github.io/jekyll-theme-console-demo-dark/)
 
 
 [light style](https://b2a3e8.github.io/jekyll-theme-console-demo-light/) ([source code](https://github.com/b2a3e8/jekyll-theme-console-demo-light)):
 
-[<img src="https://raw.githubusercontent.com/b2a3e8/jekyll-theme-console/master/screenshot-light.png" width="350" title="Screenshot">](https://b2a3e8.github.io/jekyll-theme-console-demo-light/)
+[<img src="https://raw.githubusercontent.com/emoriarty/jekyll-theme-console/master/screenshot-light.png" width="350" title="Screenshot">](https://b2a3e8.github.io/jekyll-theme-console-demo-light/)
 
 
 [hacker style](https://b2a3e8.github.io/jekyll-theme-console-demo-hacker/) ([source code](https://github.com/b2a3e8/jekyll-theme-console-demo-hacker)):
 
-[<img src="https://raw.githubusercontent.com/b2a3e8/jekyll-theme-console/master/screenshot-hacker.png" width="350" title="Screenshot">](https://b2a3e8.github.io/jekyll-theme-console-demo-hacker/)
+[<img src="https://raw.githubusercontent.com/emoriarty/jekyll-theme-console/master/screenshot-hacker.png" width="350" title="Screenshot">](https://b2a3e8.github.io/jekyll-theme-console-demo-hacker/)
 
 
 ## Installation
@@ -27,43 +33,51 @@ First, follow the steps in [this Quickstart Guide](https://jekyllrb.com/docs/) i
 
 **_You can also use the [demo site's source code](https://b2a3e8.github.io/jekyll-theme-console-demo-dark/) as template for an easy start._**
 
-### Remote theme method for GitHub Pages
+### Remote theme method
 
-Use this method for sites hosted with GitHub Pages only. To install:
+In order to install the current fork, you must use the [`jekyll-remote-theme`](https://github.com/benbalter/jekyll-remote-theme) gem. In your `_config_.yml` file you must define the option below.
 
-1. Set `remote_theme` in your project's Jekyll `_config.yml` file:
+```yaml
+remote_theme: emoriarty/jekyll-theme-console
+```
 
-   ```yaml
-   remote_theme: b2a3e8/jekyll-theme-console
-   ```
+`jekyll-remote-theme` won't find the gems installed by the theme. The error thrown looks like below.
+
+```shell
+Dependency Error: Yikes! It looks like you don't have jekyll-seo-tag or one of its dependencies installed. In order to use Jekyll as currently configured, you'll need to install this gem. If you've run Jekyll with `bundle exec`, ensure that you have included the jekyll-seo-tag gem in your Gemfile as well. The full error message from Ruby is: 'cannot load such file -- jekyll-seo-tag' If you run into trouble, you can find helpful resources at https://jekyllrb.com/help/! 
+```
+
+To make it work, you must declare the [`jekyll-seo-tag`](https://github.com/jekyll/jekyll-seo-tag) manually in your `Gemfile`. You can see in the [`Gemfile`](https://github.com/emoriarty/jekyll-theme-console/blob/7c3f8773ab75903f6a66008b4ef1d938de94cd84/Gemfile#L7) to check for more plugins, if needed.
 
 ### Gem-based method
 
-With Gem-based themes, directories such as the `assets`, `_layouts`, `_includes`, and `_sass` are stored in the theme’s gem, hidden from your immediate view. Yet all of the necessary directories will be read and processed during Jekyll’s build process.
-
-This allows for easier installation and updating as you don't have to manage any of the theme files. To install:
-
-1. Add this line to your Jekyll site's `Gemfile`:
-
-   ```ruby
-   gem "jekyll-theme-console"
-   ```
-
-2. Fetch and update bundled gems by running the following [Bundler](http://bundler.io/) command:
-
-   ```bash
-   bundle
-   ```
-
-3. Set `theme` in your project's Jekyll `_config.yml` file:
-
-   ```yaml
-   theme: jekyll-theme-console
-   ```
-
-To update the theme run `bundle update`.
+**The current fork has not been pushed to the ruby gems repository. Therefore, it cannot be installed as a gem.**
 
 ## Usage
+
+### Shell Prompt Logo
+
+The header logo looks like below.
+
+```shell
+[<prompt_name>:<prompt_path>]$
+```
+
+Where `prompt_name` is whatever name you like for your site, but in order to look like the bash prompt terminal it should be like `john@doe` or whatever `thing@thing` you like.
+
+The `prompt_path` can be configured in any page. It is the actual path in the website. E.g. the `~` is user's home folder, so it can be used as the index page.
+
+```shell
+[john@doe:~]$
+```
+
+if `prompt_path` is defined in a layout and page frontmatter, the resulting prompt will be joined, forming a nested path.
+
+```shell
+[john@doe:/blog/my-first-post]$
+```
+
+In the example below, the post layout contains a `prompt_path` holding the `/blog` value while the post page holds `/my-first-post`.
 
 ### _config.yaml
 
@@ -73,6 +87,7 @@ In addition to jekyll's default configuration options, you can provide:
 - `google_analytics` tracking id (tracking will be enabled only in production environments and only if you set this option, no Google Analytics code will be loaded if you don't set this option)
 - `listen_for_clients_preferred_style` boolean, used to allow users to choose light or dark style based on their preferences (mostly affected by OS dark or light theme, details see https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme)
 - `style` to specify which predefined style (colors) should be used
+- `prompt_name` specifies the name in the shell prompt logo.
 
 ```yaml
 header_pages:
@@ -82,6 +97,7 @@ header_pages:
 style: dark # dark (default), light or hacker
 listen_for_clients_preferred_style: true # false (default) or true
 
+prompt_name: john@doe
 footer: 'follow us on <a href="https://twitter.com/xxx">twitter</a>'
 
 google_analytics: UA-NNNNNNNN-N
@@ -93,6 +109,7 @@ Besides the predefined [front matter](https://jekyllrb.com/docs/front-matter/) v
 - `title` to set a title for the page
 - `lang` to specify the language, defaults to 'en'
 - `robots` to control the robot meta tag ([details](http://longqian.me/2017/02/12/jekyll-robots-configuration/)) - this may be useful for example to set `NOINDEX` to tag pages
+- `prompt_path` specifies the current path in the shell prompt logo.
 
 ## Customization
 

@@ -11,6 +11,8 @@ $base-line-height: 1.5 !default;
 $container-width: 90% !default;
 $container-max-width: 600px !default;
 
+$breakpoint-sm: 600px;
+
 /**
  * Global
  */
@@ -77,20 +79,20 @@ p {
 footer {
   color: var(--text-color);
   border-top: var(--border);
-  margin: 20px auto 15px;
+  margin: 20px auto 20px;
   padding-top: 10px;
   text-align: right;
 }
+.container > header {
+  border-bottom: var(--border);
+}
 header {
   margin-top: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 header p {
   text-align: left;
   margin: 0;
-}
-footer {
-  margin-bottom: 20px;
 }
 blockquote {
   font-style: italic;
@@ -126,10 +128,21 @@ blockquote {
 /**
  * Header/Navigation
  */
+.prompt {
+  color: var(--prompt);
+  float: left;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-right: 12px;
+  @media (max-width: $breakpoint-sm) {
+    float: none;
+  }
+}
+.prompt-path {
+  color: var(--prompt-path);
+}
 .menu {
   border-top: var(--border);
-  border-bottom: var(--border);
-  margin-bottom: 25px;
 }
 .menu ul {
   margin-top: 12px;
@@ -137,10 +150,23 @@ blockquote {
   padding-left: 0px;
   list-style-type: none;
   text-align: right;
+  overflow: scroll;
+
+  @media (max-width: $breakpoint-sm) {
+    margin-bottom: 0;
+    padding-bottom: 12px;
+    text-align: left;
+  }
 }
 .menu ul li {
   display: inline;
   margin-left: 10px;
+
+  @media (max-width: $breakpoint-sm) {
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }
 .menu ul li a {
   text-decoration: none;
