@@ -2,11 +2,11 @@
 
 A jekyll theme with inspiration from linux consoles for hackers, developers and script kiddies.
 
-<img src="https://raw.githubusercontent.com/emoriaty/jekyll-theme-console/master/screenrec-dark.gif" width="550" title="Screenshot">
+<img src="https://raw.githubusercontent.com/emoriarty/jekyll-theme-console/master/screenrec-dark.gif" width="550" title="Screenshot">
 
 ## Overview
 
-This is a fork from the original [jekyll-theme-console](https://b2a3e8.github.io/jekyll-theme-console) which I love but I think is needs a friendlier approach. Basically, a website is intended to be read over style, so I decided to apply some changes to improve readability without losing the hacky touch envisioned by b2a3e8.
+This is a fork from the original [jekyll-theme-console](https://b2a3e8.github.io/jekyll-theme-console) which I love but I think it needs a friendlier approach. Basically, a website is intended to be read over style, so I decided to apply some changes to improve readability without losing the hacky touch envisioned by [b2a3e8](https://github.com/b2a3e8).
 
 The most important changes affect to paragraps, headlines and the navigation bar. There's also a new logo looking like a terminal prompt :)
 
