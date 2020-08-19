@@ -29,13 +29,14 @@ body {
 h1 {
   font-size: 22px;
 }
-h2,
+h2 {
+  font-size: 18px;
+}
 h3,
 h4,
 h5,
 h6 {
   font-size: $base-font-size;
-  margin: 0px;
   margin-top: 22px;
   margin-bottom: 16px;
   font-weight: bold;
