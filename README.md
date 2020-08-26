@@ -4,7 +4,7 @@ A jekyll theme with inspiration from linux consoles for hackers, developers and 
 
 <img src="https://raw.githubusercontent.com/emoriarty/jekyll-theme-console/master/screenrec-dark.gif" width="550" title="Screenshot">
 
-## Overview
+## Motivation
 
 This is a fork from the original [jekyll-theme-console](https://b2a3e8.github.io/jekyll-theme-console) which I love but I think it needs a friendlier approach. Basically, a website is intended to be read over style, so I decided to apply some changes to improve readability without losing the hacky touch envisioned by [b2a3e8](https://github.com/b2a3e8).
 
