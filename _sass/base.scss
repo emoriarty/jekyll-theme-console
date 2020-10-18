@@ -83,6 +83,10 @@ p {
   white-space: pre-wrap;
   margin-bottom: 16px;
 }
+img {
+  max-width: 100%;
+  border: 1px dashed var(--code-color-1);
+}
 ul {
   margin-bottom: 16px;
 }
